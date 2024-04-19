@@ -60,9 +60,6 @@ Object.assign (Number.prototype, {
 		return result}
 }, iterMixin)
 
-Object.getOwnPropertyNames(Math)
-.forEach (key => window [key] = Math [key])
-
 Object.assign (Array.prototype, {
 	transpose () {
 		const result = []
