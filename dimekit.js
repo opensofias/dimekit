@@ -1,6 +1,4 @@
-'use strict'
-
-const iterMixin = Object.freeze({
+const iterMixin = {
 	reduce (callback, initial) {
 		let acc
 		if (initial === undefined) {
@@ -37,7 +35,7 @@ const iterMixin = Object.freeze({
 		for (let val of this)
 			if (callback (val, this)) return val
 	return undefined}
-})
+}
 
 Object.assign (Number.prototype, {
 	*[Symbol.iterator] () {
