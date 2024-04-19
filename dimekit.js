@@ -39,7 +39,7 @@ const iterMixin = Object.freeze({
 	return undefined}
 })
 
-O.assign (N.prototype, {
+Object.assign (Number.prototype, {
 	*[Symbol.iterator] () {
 		if (this < 0) throw 'cannot iterate over negative number: ' + this
 
@@ -62,10 +62,10 @@ O.assign (N.prototype, {
 		return result}
 }, iterMixin)
 
-O.getOwnPropertyNames(Math)
+Object.getOwnPropertyNames(Math)
 .forEach (key => window [key] = Math [key])
 
-O.assign (A.prototype, {
+Object.assign (A.prototype, {
 	transpose () {
 		const result = []
 		for (var index of this.reduce (
@@ -77,9 +77,9 @@ O.assign (A.prototype, {
 const arrayTypes = [Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array, Array]
 
 const assignRect = type =>
-	O.assign (type.prototype, {
-		rect () { return O.assign (
-			O.create (iterMixin), {
+	Object.assign (type.prototype, {
+		rect () { return Object.assign (
+			Object.create (iterMixin), {
 				parent: this,
 				*[Symbol.iterator] () {
 					const parent = this.parent
@@ -112,5 +112,5 @@ const assignRect = type =>
 
 arrayTypes.forEach (assignRect)
 
-O.assign (Set.prototype, iterMixin)
+Object.assign (Set.prototype, iterMixin)
 
