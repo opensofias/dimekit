@@ -63,7 +63,7 @@ Object.assign (Number.prototype, {
 Object.getOwnPropertyNames(Math)
 .forEach (key => window [key] = Math [key])
 
-Object.assign (A.prototype, {
+Object.assign (Array.prototype, {
 	transpose () {
 		const result = []
 		for (var index of this.reduce (
