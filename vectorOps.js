@@ -20,4 +20,4 @@ assignVecOps = type => Object.assign (type, {
 	}
 })
 
-arrayTypes.forEach (assignRect)
+arrayTypes.forEach (assignVecOps)
