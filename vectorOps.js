@@ -10,7 +10,9 @@ const assignVecOps = type => Object.assign (type.prototype, {
 	eq (other) {
 		if (this.length != other.length) return false
 		return this.every ((val, idx) => 
-			'equal' in val ? val.equal (other [idx]) : val === other [idx]
+			(typeof val == 'object' && 'eq' in val) ?
+				val.eq (other [idx]) :
+				val === other [idx]
 		)
 
 	},
