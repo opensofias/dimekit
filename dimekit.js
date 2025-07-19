@@ -64,8 +64,8 @@ Object.assign (Array.prototype, {
 	transpose () {
 		const result = []
 		for (var index of this.reduce (
-			(acc, val) => max(acc, val.length), 0)
-		) result.push(this.map (child => child[index]))
+			(acc, val) => max (acc, val.length), 0)
+		) result.push (this.map (child => child [index]))
 	return result}
 })
 
@@ -81,11 +81,11 @@ const assignRect = type =>
 					let continues = ! parent.some (edge => edge <= 0)
 
 					let countArray = type == Array ?
-						parent.length.map(()=> 0) : 
+						parent.length.map (()=> 0) : 
 						new type (parent.length)
 
 					while (continues) {
-						yield countArray.slice()
+						yield countArray.slice ()
 
 						for (const index of parent.length)
 							if (countArray [index] < parent [index] - 1) {
@@ -98,14 +98,13 @@ const assignRect = type =>
 					for (let num of this) callback (num, this)
 				},
 				contains (comparedTo) {
-					return parent.every ((num, index) => comparedTo[index] < num)
+					return parent.every ((num, index) => comparedTo [index] < num)
 				},
 				isContainedIn (comparedTo) {
-					return parent.every ((num, index) => comparedTo[index] > num)
+					return parent.every ((num, index) => comparedTo [index] > num)
 				}
 	})}})
 
 arrayTypes.forEach (assignRect)
 
 Object.assign (Set.prototype, iterMixin)
-
