@@ -3,7 +3,7 @@ const arrayTypes = [Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16
 const assignVecOps = type => Object.assign (type.prototype, {
 	add (...others) {
 		return others.reduce (
-			(prev, cur) => prev.map ((val, idx) => val + cur[idx]),
+			(prev, cur) => prev.map ((val, idx) => val + cur [idx]),
 			type.from (this)
 		)
 	},
